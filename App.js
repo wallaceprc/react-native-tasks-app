@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useState, useEffect, useRef} from 'react';
 import {
   View,
@@ -95,15 +96,15 @@ export default function App() {
     setNewTask('');
   }
 
-  function handleDelete(key) {
+  function handleDelete(delKey) {
     firebase
       .database()
       .ref('tasks')
       .child(user)
-      .child(key)
+      .child(delKey)
       .remove()
       .then(() => {
-        const findTasks = tasks.filter(item => item.key !== key);
+        const findTasks = tasks.filter(item => item.key !== delKey);
         setTasks(findTasks);
       });
   }
@@ -121,7 +122,7 @@ export default function App() {
   }
 
   if (!user) {
-    return <Login changeStatus={user => setUser(user)} />;
+    return <Login changeStatus={statusUser => setUser(statusUser)} />;
   }
 
   return (
