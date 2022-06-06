@@ -25,6 +25,7 @@ export default function Login({changeStatus}) {
         })
         .catch(err => {
           console.log(err);
+          // eslint-disable-next-line no-alert
           alert('Ops parece que deu algum erro.');
           return;
         });
@@ -38,6 +39,7 @@ export default function Login({changeStatus}) {
         })
         .catch(err => {
           console.log(err);
+          // eslint-disable-next-line no-alert
           alert('Ops parece que algo está errado.');
           return;
         });
